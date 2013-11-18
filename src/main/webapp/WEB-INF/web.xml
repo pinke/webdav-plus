@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+  ~ Copyright (c) 1996-2013 ApexSoft co.,td.
+  ~ site: http://www.apexsoft.com.cn
+  ~ 版权所有：福建顶点软件股份有限公司
+  ~ 地址：福建省福州市软件大道89号软件园顶点软件中心 350003
+  -->
+
+<web-app xmlns="http://java.sun.com/xml/ns/javaee"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://java.sun.com/xml/ns/javaee
+		  http://java.sun.com/xml/ns/javaee/web-app_2_5.xsd"
+         version="2.5">
+    <servlet>
+        <servlet-name>WebdavServlet</servlet-name>
+        <servlet-class>net.sf.webdav.WebdavServlet</servlet-class>
+        <init-param>
+            <param-name>rootpath</param-name>
+            <param-value>*WAR-FILE-ROOT*/uploads</param-value>
+        </init-param>
+        <init-param>
+            <param-name>authorization-class</param-name>
+            <param-value>net.sf.webdav.authorization.BasicAuthorization</param-value>
+        </init-param>
+        <init-param>
+            <param-name>basic-auth-enabled</param-name>
+            <param-value>true</param-value>
+        </init-param>
+        <init-param>
+            <param-name>basic-auth-user</param-name>
+            <param-value>admin</param-value>
+        </init-param>
+        <init-param>
+            <param-name>basic-auth-password</param-name>
+            <param-value>000000</param-value>
+        </init-param>
+        <init-param>
+            <param-name>basic-realm</param-name>
+            <param-value>WebDav</param-value>
+        </init-param>
+        <load-on-startup>0</load-on-startup>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>WebdavServlet</servlet-name>
+        <url-pattern>/dav/*</url-pattern>
+    </servlet-mapping>
+</web-app>
